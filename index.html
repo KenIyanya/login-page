@@ -6,16 +6,17 @@
   <title>Document</title>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <style>
-    .title{text-align: center; color: rgb(87, 87, 145);}
+  <style> 
+  body{background-color: rgb(243, 241, 241); margin: 0.5em;}
+    h2{text-align: center; padding: 1em;}
   </style>
 </head>
-<body>
-  <h2 class="title">Tech world inc.</h2>
+<body class="container">
+  <h2 class="text-info">Tech world inc.</h2>
   <div id="app" class="container d-flex bd-highlight" style="height: 350px;">
     
-    <div id="form" class="form-group p-2 w-50 bd-highlight bg-light " >
-      <label for="exampleDropdownFormEmail1">Email address</label>
+    <div id="form" class="form-group p-2 w-50 bd-highlight bg-light text-danger" >
+      <label for="exampleDropdownFormEmail1" >Email address</label>
       <input type="email" v-model="email" placeholder="abc@mail.com" class="form-control ">
       <label for="exampleDropdownFormPassword1">Password</label>
       <input type="password" v-model="password" placeholder="Password" class="form-control">
@@ -35,6 +36,7 @@
     
     
    <div id="result" class="p-2 flex-shrink-1 bd-highlight" style="height: 100px; width: 200px;">
+    <h5>{{loginDetails}}</h5>
       {{showemail}}
       <p></p>
       {{showpassword}} 
@@ -50,12 +52,14 @@
           email: '',
           password: '',
           showemail: '',
-          showpassword: ''
+          showpassword: '',
+          loginDetails: ''
         }
        
       },
       methods: {
           show(){
+            this.loginDetails = "Your login details"
             this.showemail = "Email: " + this.email
             this.showpassword = "Password: " + this.password
           }
